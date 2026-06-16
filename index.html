@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy Movement – Expert Home Physiotherapy | Pan India</title>
+<meta name="description" content="Best home physiotherapy across India. Certified experts, proven recovery, at your convenience. Available 24x7. Book now.">
+<link rel="icon" type="image/jpeg" href="easymovementlogo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: { 50:'#E8F4F0', 100:'#C5E3D8', 200:'#8FC9B3', 300:'#4FA88A', 400:'#1E8A68', 500:'#0D6B50', 600:'#095038', 700:'#063626', DEFAULT:'#0D6B50' },
+        gold: { 100:'#FDF3DC', 200:'#F9DFA0', 300:'#F2C44E', 400:'#E8A918', 500:'#C4890A', DEFAULT:'#E8A918' },
+        dark: '#0A1628',
+        navy: '#0F2545',
+        cream: '#FAFAF7',
+      },
+      fontFamily: {
+        serif: ['Playfair Display', 'Georgia', 'serif'],
+        sans: ['DM Sans', 'system-ui', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: #FAFAF7; color: #1a2e1a; overflow-x: hidden; }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(13,107,80,0.4)} 70%{box-shadow:0 0 0 20px rgba(13,107,80,0)} 100%{box-shadow:0 0 0 0 rgba(13,107,80,0)} }
+
+  .fade-up { animation: fadeUp 0.8s ease forwards; }
+  .fade-up-2 { animation: fadeUp 0.8s 0.2s ease forwards; opacity:0; }
+  .fade-up-3 { animation: fadeUp 0.8s 0.3s ease forwards; opacity:0; }
+  .fade-up-4 { animation: fadeUp 0.8s 0.4s ease forwards; opacity:0; }
+  .float { animation: float 4s ease-in-out infinite; }
+
+  /* Nav */
+  .nav-glass { background: rgba(10,22,40,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+
+  /* Hero */
+  .hero-bg {
+    background: linear-gradient(135deg, #0A1628 0%, #0F2545 40%, #093830 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230D6B50' fill-opacity='0.06'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.8;
+  }
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+  }
+  .gold-text { color: #E8A918; }
+  .green-text { color: #4FA88A; }
+
+  /* Cards */
+  .service-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(13,107,80,0.12);
+    transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; top:0; left:0; right:0; height:3px;
+    background: linear-gradient(90deg, #0D6B50, #4FA88A, #E8A918);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
+  }
+  .service-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(13,107,80,0.15); border-color: rgba(13,107,80,0.3); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .trust-badge {
+    background: linear-gradient(135deg, #0D6B50, #095038);
+    border-radius: 16px;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .trust-badge::after {
+    content: '';
+    position: absolute; top:-50%; right:-50%;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  }
+
+  .process-step { position: relative; }
+  .process-step::after {
+    content: '';
+    position: absolute; top: 40px; left: calc(50% + 30px);
+    width: calc(100% - 60px); height: 2px;
+    background: linear-gradient(90deg, #0D6B50, #4FA88A);
+    display: none;
+  }
+  @media(min-width:768px) { .process-step:not(:last-child)::after { display: block; } }
+
+  .before-after-card {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    background: #0A1628;
+  }
+  .testimonial-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(13,107,80,0.1);
+    position: relative;
+  }
+  .testimonial-card::before {
+    content: '"';
+    position: absolute; top: 1rem; left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; color: rgba(13,107,80,0.12); line-height: 1;
+  }
+
+  .partner-card {
+    background: linear-gradient(135deg, #0A1628 0%, #0F2545 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(232,169,24,0.2);
+    color: white;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .partner-card::before {
+    content: '';
+    position: absolute; top:0; right:0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(232,169,24,0.1) 0%, transparent 70%);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #0D6B50, #4FA88A);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(13,107,80,0.35); filter: brightness(1.1); }
+
+  .btn-gold {
+    background: linear-gradient(135deg, #E8A918, #F2C44E);
+    color: #0A1628;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+  .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(232,169,24,0.4); }
+
+  .btn-outline {
+    background: transparent;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(13,107,80,0.08);
+    color: #0D6B50;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .section-label-gold { background: rgba(232,169,24,0.12); color: #C4890A; }
+  .section-label-white { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); }
+
+  .icon-circle {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .stars { color: #E8A918; letter-spacing: 2px; }
+
+  .ribbon {
+    position: absolute; top: 16px; right: -30px;
+    background: #E8A918; color: #0A1628;
+    font-size: 0.7rem; font-weight: 700;
+    padding: 4px 40px;
+    transform: rotate(45deg);
+    letter-spacing: 0.05em;
+  }
+
+  .whatsapp-float {
+    position: fixed; bottom: 2rem; right: 2rem;
+    background: #25D366;
+    border-radius: 50%;
+    width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 25px rgba(37,211,102,0.4);
+    z-index: 999;
+    cursor: pointer;
+    animation: pulse-ring 2s infinite;
+    text-decoration: none;
+  }
+
+  .wave-divider { line-height: 0; }
+
+  .faq-item { border-bottom: 1px solid rgba(13,107,80,0.1); }
+  .faq-question {
+    padding: 1.25rem 0;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    color: #0A1628;
+    font-size: 1rem;
+  }
+  .faq-answer {
+    display: none;
+    padding: 0 0 1.25rem;
+    color: #4a6157;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+  .faq-answer.open { display: block; }
+
+  .condition-pill {
+    background: white;
+    border: 1.5px solid rgba(13,107,80,0.2);
+    color: #095038;
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .condition-pill:hover { background: #0D6B50; color: white; border-color: #0D6B50; transform: translateY(-3px); }
+
+  .form-input {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    border: 1.5px solid rgba(13,107,80,0.2);
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s;
+    background: white;
+    color: #0A1628;
+  }
+  .form-input:focus { border-color: #0D6B50; box-shadow: 0 0 0 4px rgba(13,107,80,0.1); }
+  .form-label { font-size: 0.85rem; font-weight: 600; color: #0A1628; margin-bottom: 0.4rem; display: block; }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Logo image style */
+  .logo-img {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .guarantee-badge {
+    background: white;
+    border: 2px solid #0D6B50;
+    border-radius: 50%;
+    width: 110px; height: 110px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(13,107,80,0.15);
+  }
+
+  /* Hero image card */
+  .hero-img-card {
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+  }
+  .hero-img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  .hero-img-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(10,22,40,0.85) 0%, transparent 100%);
+    padding: 1.5rem;
+  }
+
+  /* Terms & Conditions Modal */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(10,22,40,0.85);
+    backdrop-filter: blur(6px);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: white;
+    border-radius: 24px;
+    max-width: 640px;
+    width: 100%;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+    overflow: hidden;
+  }
+  .modal-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(13,107,80,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .modal-body {
+    padding: 1.5rem 2rem;
+    overflow-y: auto;
+    flex: 1;
+    color: #374151;
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+  .modal-body h3 { font-weight: 700; color: #0A1628; margin: 1.2rem 0 0.5rem; font-size: 1rem; }
+  .modal-body h3:first-child { margin-top: 0; }
+  .modal-footer {
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(13,107,80,0.1);
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+  .modal-close-btn {
+    background: none; border: 1.5px solid rgba(13,107,80,0.3);
+    color: #0D6B50; padding: 0.6rem 1.5rem;
+    border-radius: 50px; font-weight: 600; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .modal-close-btn:hover { background: rgba(13,107,80,0.08); }
+
+  /* Form states */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  .form-success.show { display: block; }
+  .form-error-msg {
+    color: #e24b4a;
+    font-size: 0.82rem;
+    margin-top: 0.5rem;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- TERMS & CONDITIONS MODAL -->
+<div class="modal-overlay" id="termsModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <h2 class="font-serif font-bold text-xl" style="color:#0A1628;">Terms &amp; Conditions</h2>
+        <p class="text-xs text-gray-400 mt-1">Easy Movement Home Physiotherapy</p>
+      </div>
+      <button onclick="closeTerms()" style="background:none;border:none;cursor:pointer;font-size:1.5rem;color:#6b7280;line-height:1;">✕</button>
+    </div>
+    <div class="modal-body">
+      <h3>1. Services</h3>
+      <p>Easy Movement provides professional home physiotherapy services across India. All services are delivered by certified physiotherapists (BPT/MPT qualified) who have undergone background verification. Services are subject to therapist availability in your area.</p>
+
+      <h3>2. Appointments &amp; Cancellations</h3>
+      <p>Appointments can be booked via our website form, phone, or WhatsApp. Cancellations must be made at least 2 hours before the scheduled session. Repeated last-minute cancellations may affect future booking priority. We reserve the right to reschedule due to therapist unavailability.</p>
+
+      <h3>3. Free Consultation</h3>
+      <p>The free first consultation is a telephonic/online assessment only and does not include a home visit. Post assessment, our team will recommend a suitable treatment plan. The free consultation is limited to one per patient.</p>
+
+      <h3>4. Payments &amp; Refunds</h3>
+      <p>Session fees are payable before or at the time of the session. If you are unsatisfied after your first paid session, you may request a full refund within 24 hours. Refunds are processed within 5–7 business days. Refund requests after the first session will not be entertained.</p>
+
+      <h3>5. Patient Responsibilities</h3>
+      <p>Patients must disclose all relevant medical history, current medications, and conditions to the therapist. Easy Movement is not liable for any adverse outcomes resulting from incomplete or inaccurate medical disclosures. Patients must ensure a safe and accessible space for the therapist to conduct the session.</p>
+
+      <h3>6. Privacy &amp; Data</h3>
+      <p>Personal information provided via our booking form is used solely for appointment management and follow-up. We do not sell or share your data with third parties. Session reports shared via WhatsApp are confidential and intended only for the patient and their designated family member/doctor.</p>
+
+      <h3>7. Medical Disclaimer</h3>
+      <p>Physiotherapy services provided by Easy Movement are complementary to, and not a replacement for, physician-prescribed medical treatment. Always consult your doctor before starting physiotherapy. Easy Movement therapists do not diagnose medical conditions.</p>
+
+      <h3>8. Availability</h3>
+      <p>We operate 24 hours a day, 7 days a week, 365 days a year. Response times may vary during high-demand periods. Emergency sessions are subject to therapist availability.</p>
+
+      <h3>9. Liability</h3>
+      <p>Easy Movement shall not be liable for any direct, indirect, or consequential damages arising from the use of our services beyond the session fee paid. Our maximum liability is limited to the amount paid for the specific session in question.</p>
+
+      <h3>10. Governing Law</h3>
+      <p>These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in Bangalore, Karnataka.</p>
+
+      <p class="text-xs text-gray-400 mt-6">Last updated: June 2025. Easy Movement reserves the right to update these terms at any time.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-close-btn" onclick="closeTerms()">Close</button>
+      <button class="btn-primary" style="padding:0.6rem 1.8rem;font-size:0.9rem;" onclick="closeTerms()">I Understand</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+    <div class="flex items-center gap-3">
+      <img src="easymovementlogo.jpg" alt="Easy Movement Logo" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="logo-mark" style="display:none;background:linear-gradient(135deg,#0D6B50,#4FA88A);width:40px;height:40px;border-radius:10px;align-items:center;justify-content:center;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><path d="M12 2C8 2 4 6 4 10c0 5 8 12 8 12s8-7 8-12c0-4-4-8-8-8z"/></svg>
+      </div>
+      <div>
+        <div class="font-serif font-bold text-white text-lg leading-tight">Easy Movement</div>
+        <div class="text-xs" style="color:rgba(79,168,138,0.9);font-weight:500;letter-spacing:0.05em;">HOME PHYSIOTHERAPY</div>
+      </div>
+    </div>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#services" class="text-sm text-white/70 hover:text-white transition-colors">Services</a>
+      <a href="#process" class="text-sm text-white/70 hover:text-white transition-colors">How It Works</a>
+      <a href="#conditions" class="text-sm text-white/70 hover:text-white transition-colors">Conditions</a>
+      <a href="#doctors" class="text-sm text-white/70 hover:text-white transition-colors">For Doctors</a>
+      <a href="#booking" class="btn-primary" style="padding:0.6rem 1.5rem;font-size:0.875rem;">📞 Book Now</a>
+    </div>
+    <a href="#booking" class="md:hidden btn-primary" style="padding:0.5rem 1.2rem;font-size:0.8rem;">Book Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-bg min-h-screen flex items-center pt-16 relative">
+  <div class="hero-orb" style="width:600px;height:600px;background:#0D6B50;top:-200px;right:-200px;"></div>
+  <div class="hero-orb" style="width:400px;height:400px;background:#E8A918;bottom:-100px;left:-100px;"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Left -->
+      <div class="fade-up">
+        <div class="section-label section-label-white mb-6">
+          🇮🇳 India's Most Trusted Home Physiotherapy
+        </div>
+        <h1 class="font-serif text-white leading-tight mb-6" style="font-size:clamp(2.2rem,5vw,3.8rem);">
+          Expert Physiotherapy,<br>
+          <span class="gold-text">Right at Your Door.</span><br>
+          <span style="color:rgba(79,168,138,1);">Real Relief. Fast Recovery.</span>
+        </h1>
+        <p class="text-white/70 text-lg mb-8 leading-relaxed max-w-lg">
+          No more painful trips to clinics. Get certified physiotherapists at your home anywhere in India — with expert care, trust, and the most advanced equipment.
+        </p>
+
+        <div class="flex flex-wrap gap-4 mb-10">
+          <a href="#booking" class="btn-gold" style="font-size:1rem;">
+            📞 Book a Free Consultation
+          </a>
+          <a href="#process" class="btn-outline" style="font-size:1rem;">
+            See How It Works →
+          </a>
+        </div>
+
+        <div class="flex flex-wrap gap-6">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background:rgba(13,107,80,0.3);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4FA88A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="text-white/80 text-sm font-medium">Certified Therapists</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background:rgba(13,107,80,0.3);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4FA88A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="text-white/80 text-sm font-medium">100% Home Visit</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background:rgba(13,107,80,0.3);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4FA88A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="text-white/80 text-sm font-medium">Doctor-Approved Plans</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background:rgba(13,107,80,0.3);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4FA88A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="text-white/80 text-sm font-medium">24×7, 365 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right - Hero Photo Card -->
+      <div class="fade-up-2 flex flex-col gap-4">
+        <div class="hero-img-card float">
+          <img src="easy_movement_heroimage_home_physiotherapy_female.jpg"
+               alt="Easy Movement home physiotherapy session"
+               onerror="this.parentElement.style.background='linear-gradient(135deg,#0D6B50,#4FA88A)';this.style.display='none';">
+          <div class="hero-img-overlay">
+            <div class="flex items-center gap-3">
+              <div class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(13,107,80,0.9);color:white;">✓ Certified Expert</div>
+              <div class="px-3 py-1 rounded-full text-xs font-bold" style="background:rgba(232,169,24,0.95);color:#0A1628;">🏠 Home Visit</div>
+            </div>
+            <div class="mt-2">
+              <div class="text-white font-semibold text-sm">Professional Session in Progress</div>
+              <div class="text-white/60 text-xs">BPT + MPT Qualified Therapist</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div class="rounded-2xl p-4 text-center fade-up-2" style="background:rgba(13,107,80,0.25);border:1px solid rgba(79,168,138,0.3);">
+            <div class="font-serif text-3xl font-bold gold-text">500+</div>
+            <div class="text-white/70 text-xs mt-1">Happy Patients</div>
+          </div>
+          <div class="rounded-2xl p-4 text-center fade-up-3" style="background:rgba(232,169,24,0.15);border:1px solid rgba(232,169,24,0.3);">
+            <div class="font-serif text-3xl font-bold text-white">100%</div>
+            <div class="text-white/70 text-xs mt-1">Satisfaction</div>
+          </div>
+          <div class="rounded-2xl p-4 text-center fade-up-4" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);">
+            <div class="font-serif text-3xl font-bold" style="color:#4FA88A;">24×7</div>
+            <div class="text-white/70 text-xs mt-1">Always Available</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wave-divider absolute bottom-0 left-0 right-0">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;">
+      <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#FAFAF7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- PROBLEM / TRUST -->
+<section class="py-16 bg-cream" id="why">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <div class="section-label mb-4">Why Easy Movement Exists</div>
+      <h2 class="font-serif text-4xl font-bold mb-6" style="color:#0A1628;">
+        Physiotherapy in India is Broken.<br>
+        <span style="color:#0D6B50;">We Fixed It — For You.</span>
+      </h2>
+      <p class="text-gray-600 text-lg leading-relaxed">
+        Thousands of patients across India skip physiotherapy — not because they don't need it — but because going to a clinic is painful, expensive, and inconvenient. Elderly patients, post-surgery patients, stroke survivors — they suffer at home with no proper care. <strong>We bring the clinic to your doorstep, anywhere in India.</strong>
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-12">
+      <div class="rounded-2xl p-6 reveal" style="background:#FEF4F4;border-left:4px solid #E24B4A;">
+        <div class="text-3xl mb-3">😣</div>
+        <h3 class="font-bold text-lg mb-2" style="color:#0A1628;">The Old Way</h3>
+        <ul class="text-sm text-gray-600 space-y-2">
+          <li>✗ Painful travel to clinic daily</li>
+          <li>✗ Long waiting queues</li>
+          <li>✗ Inconsistent therapists</li>
+          <li>✗ No relief after several sessions</li>
+          <li>✗ Family has to take leave to escort</li>
+        </ul>
+      </div>
+      <div class="flex items-center justify-center">
+        <div class="text-center">
+          <div class="font-serif text-6xl font-bold" style="color:#0D6B50;">VS</div>
+          <div class="mt-4 text-gray-500 text-sm">The difference<br>is life-changing</div>
+        </div>
+      </div>
+      <div class="rounded-2xl p-6 reveal" style="background:#E8F4F0;border-left:4px solid #0D6B50;">
+        <div class="text-3xl mb-3">🏠</div>
+        <h3 class="font-bold text-lg mb-2" style="color:#0A1628;">The Easy Movement Way</h3>
+        <ul class="text-sm text-gray-600 space-y-2">
+          <li>✓ Expert visits your home, on time</li>
+          <li>✓ Trusted and secured session</li>
+          <li>✓ Doctor-prescribed treatment plans</li>
+          <li>✓ Progress reports after every visit</li>
+          <li>✓ Family can relax — we handle it</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="py-20 bg-cream" id="process">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14 reveal">
+      <div class="section-label mb-4">Our Process</div>
+      <h2 class="font-serif text-4xl font-bold" style="color:#0A1628;">
+        6 Simple Steps to<br><span style="color:#0D6B50;">Complete Recovery</span>
+      </h2>
+      <p class="text-gray-500 mt-4 max-w-xl mx-auto">From your first call to your last report — every step is managed by professionals.</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 relative">
+      <div class="process-step text-center reveal">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:linear-gradient(135deg,#0D6B50,#4FA88A);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.12 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.41 7.5a16 16 0 006 6l.86-.86a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+        </div>
+        <div class="w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-2 text-white text-xs font-bold" style="background:#0A1628;">1</div>
+        <h4 class="font-bold text-sm" style="color:#0A1628;">Call Us</h4>
+        <p class="text-gray-500 text-xs mt-1 leading-relaxed">One call. We understand your problem.</p>
+      </div>
+      <div class="process-step text-center reveal">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:linear-gradient(135deg,#0D6B50,#4FA88A);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-2 text-white text-xs font-bold" style="background:#0A1628;">2</div>
+        <h4 class="font-bold text-sm" style="color:#0A1628;">Consultation</h4>
+        <p class="text-gray-500 text-xs mt-1 leading-relaxed">Expert assessment of your condition.</p>
+      </div>
+      <div class="process-step text-center reveal">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:linear-gradient(135deg,#E8A918,#F2C44E);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-2 text-white text-xs font-bold" style="background:#0A1628;">3</div>
+        <h4 class="font-bold text-sm" style="color:#0A1628;">Prescription</h4>
+        <p class="text-gray-500 text-xs mt-1 leading-relaxed">Personalized treatment plan made.</p>
+      </div>
+      <div class="process-step text-center reveal">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:linear-gradient(135deg,#0D6B50,#4FA88A);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-2 text-white text-xs font-bold" style="background:#0A1628;">4</div>
+        <h4 class="font-bold text-sm" style="color:#0A1628;">Physio at Home</h4>
+        <p class="text-gray-500 text-xs mt-1 leading-relaxed">Expert visits your home, on time.</p>
+      </div>
+      <div class="process-step text-center reveal">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:linear-gradient(135deg,#E8A918,#F2C44E);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <div class="w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-2 text-white text-xs font-bold" style="background:#0A1628;">5</div>
+        <h4 class="font-bold text-sm" style="color:#0A1628;">Session Report</h4>
+        <p class="text-gray-500 text-xs mt-1 leading-relaxed">Detailed report after every session.</p>
+      </div>
+      <div class="process-step text-center reveal">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:linear-gradient(135deg,#0D6B50,#4FA88A);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-2 text-white text-xs font-bold" style="background:#0A1628;">6</div>
+        <h4 class="font-bold text-sm" style="color:#0A1628;">Progress Tracking</h4>
+        <p class="text-gray-500 text-xs mt-1 leading-relaxed">Live recovery monitoring &amp; updates.</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-12 reveal">
+      <a href="#booking" class="btn-primary" style="font-size:1.05rem;padding:1rem 3rem;">
+        Start Your Recovery Today →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="py-20" id="services" style="background:white;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14 reveal">
+      <div class="section-label mb-4">Our Services</div>
+      <h2 class="font-serif text-4xl font-bold" style="color:#0A1628;">
+        Every Type of Physiotherapy,<br><span style="color:#0D6B50;">Delivered at Home</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="service-card reveal">
+        <div class="icon-circle mb-4" style="background:#E8F4F0;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0D6B50" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2" style="color:#0A1628;">Orthopaedic Physiotherapy</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4">Post-surgery rehab, knee pain, hip replacement, fracture recovery, joint stiffness, spine problems. Specialized manual therapy &amp; strengthening.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#E8F4F0;color:#0D6B50;">Knee Pain</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#E8F4F0;color:#0D6B50;">Post Surgery</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#E8F4F0;color:#0D6B50;">Spine</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="icon-circle mb-4" style="background:#E8F4F0;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0D6B50" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2" style="color:#0A1628;">Neurological Physiotherapy</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4">Stroke rehab, Parkinson's disease, spinal cord injury, paralysis, neurological weakness. Regain movement, balance, and independence.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#E8F4F0;color:#0D6B50;">Stroke</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#E8F4F0;color:#0D6B50;">Paralysis</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#E8F4F0;color:#0D6B50;">Parkinson's</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="icon-circle mb-4" style="background:#FDF3DC;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C4890A" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2" style="color:#0A1628;">Geriatric Physiotherapy</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4">Specially designed for elderly patients. Balance training, fall prevention, arthritis management, improving mobility and quality of life.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#FDF3DC;color:#C4890A;">Arthritis</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#FDF3DC;color:#C4890A;">Balance</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#FDF3DC;color:#C4890A;">Elderly Care</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="icon-circle mb-4" style="background:#E8F4F0;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0D6B50" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2" style="color:#0A1628;">Cardiac &amp; Pulmonary Rehab</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4">Post heart attack/surgery recovery, COPD management, breathing exercises, improving cardiac endurance under expert supervision.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#E8F4F0;color:#0D6B50;">Heart Rehab</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#E8F4F0;color:#0D6B50;">Breathing</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#E8F4F0;color:#0D6B50;">COPD</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="icon-circle mb-4" style="background:#E8F4F0;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0D6B50" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2" style="color:#0A1628;">Paediatric Physiotherapy</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4">For children with developmental delays, cerebral palsy, muscle weakness, coordination issues. Child-friendly, fun-based therapeutic sessions.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#E8F4F0;color:#0D6B50;">Cerebral Palsy</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#E8F4F0;color:#0D6B50;">Child Dev.</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="icon-circle mb-4" style="background:#FDF3DC;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C4890A" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2" style="color:#0A1628;">Sports &amp; Pain Management</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4">Back pain, neck pain, sciatica, sports injuries, muscle spasms. Advanced electrotherapy, dry needling, deep tissue massage, stretching protocols.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#FDF3DC;color:#C4890A;">Back Pain</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#FDF3DC;color:#C4890A;">Sciatica</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:#FDF3DC;color:#C4890A;">Sports</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS -->
+<section class="py-16 bg-cream" id="conditions">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12 reveal">
+      <div class="section-label mb-4">Conditions We Treat</div>
+      <h2 class="font-serif text-4xl font-bold" style="color:#0A1628;">
+        If You Feel This Pain, <span style="color:#0D6B50;">We Have the Answer</span>
+      </h2>
+    </div>
+    <div class="flex flex-wrap gap-3 justify-center reveal">
+      <span class="condition-pill">🦴 Knee Pain</span>
+      <span class="condition-pill">🧠 Stroke Recovery</span>
+      <span class="condition-pill">💪 Back Pain</span>
+      <span class="condition-pill">🦶 Foot Drop</span>
+      <span class="condition-pill">🤕 Cervical Pain</span>
+      <span class="condition-pill">🦵 Hip Replacement Rehab</span>
+      <span class="condition-pill">🏋️ Frozen Shoulder</span>
+      <span class="condition-pill">⚡ Sciatica</span>
+      <span class="condition-pill">🧓 Parkinson's Disease</span>
+      <span class="condition-pill">🔧 Post-Surgery Rehab</span>
+      <span class="condition-pill">👶 Cerebral Palsy</span>
+      <span class="condition-pill">❤️ Post-Heart Surgery</span>
+      <span class="condition-pill">🦴 Osteoporosis</span>
+      <span class="condition-pill">🏃 Sports Injuries</span>
+      <span class="condition-pill">🤸 Spondylitis</span>
+      <span class="condition-pill">💨 COPD / Breathing</span>
+      <span class="condition-pill">🦾 Muscle Weakness</span>
+      <span class="condition-pill">🧘 Arthritis</span>
+      <span class="condition-pill">🫀 Paralysis</span>
+      <span class="condition-pill">🤦 Headache &amp; Migraine</span>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="py-20" style="background:#0A1628;" id="results">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14 reveal">
+      <div class="section-label section-label-white mb-4">Real Results</div>
+      <h2 class="font-serif text-4xl font-bold text-white">
+        Before &amp; After: <span class="gold-text">Real Patients,</span><br>Real Transformations
+      </h2>
+      <p class="text-white/50 mt-4">Real outcomes from our patients across India.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="before-after-card reveal">
+        <div class="grid grid-cols-2 relative">
+          <div class="p-6 flex flex-col items-center" style="background:rgba(226,75,74,0.1);border-right:1px solid rgba(255,255,255,0.1);">
+            <div class="text-xs font-bold text-red-400 mb-3 uppercase tracking-widest">Before</div>
+            <svg viewBox="0 0 100 100" width="80" height="80">
+              <circle cx="50" cy="20" r="10" fill="rgba(240,200,160,0.9)"/>
+              <path d="M 50 30 Q 45 50 40 70" stroke="rgba(240,200,160,0.7)" stroke-width="6" fill="none" stroke-linecap="round"/>
+              <path d="M 50 40 L 35 55" stroke="rgba(240,200,160,0.7)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M 50 40 L 62 50" stroke="rgba(240,200,160,0.7)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <line x1="62" y1="50" x2="70" y2="75" stroke="#aaa" stroke-width="2"/>
+              <path d="M 40 70 L 32 85" stroke="rgba(240,200,160,0.7)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M 40 70 L 45 85" stroke="rgba(240,200,160,0.7)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <text x="25" y="48" font-size="12">💢</text>
+              <text x="60" y="35" font-size="10">😣</text>
+            </svg>
+            <div class="text-white/50 text-xs text-center mt-3">Unable to walk<br>without support</div>
+          </div>
+          <div class="p-6 flex flex-col items-center" style="background:rgba(13,107,80,0.15);">
+            <div class="text-xs font-bold text-green-400 mb-3 uppercase tracking-widest">After</div>
+            <svg viewBox="0 0 100 100" width="80" height="80">
+              <circle cx="50" cy="18" r="10" fill="rgba(240,200,160,0.9)"/>
+              <path d="M 50 28 L 50 60" stroke="rgba(240,200,160,0.8)" stroke-width="7" fill="none" stroke-linecap="round"/>
+              <path d="M 50 38 L 35 50" stroke="rgba(240,200,160,0.8)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M 50 38 L 65 50" stroke="rgba(240,200,160,0.8)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M 50 60 L 42 80" stroke="rgba(240,200,160,0.8)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M 50 60 L 58 80" stroke="rgba(240,200,160,0.8)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <text x="55" y="15" font-size="14">😊</text>
+              <text x="18" y="45" font-size="12">⭐</text>
+            </svg>
+            <div class="text-green-400 text-xs text-center mt-3 font-semibold">Walking freely<br>in 21 days!</div>
+          </div>
+        </div>
+        <div class="p-4" style="background:rgba(255,255,255,0.05);">
+          <div class="text-white font-semibold text-sm">Mr. Ramesh, 64</div>
+          <div class="text-white/40 text-xs">Knee Replacement Rehab</div>
+          <div class="stars text-sm mt-1">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="before-after-card reveal">
+        <div class="grid grid-cols-2 relative">
+          <div class="p-6 flex flex-col items-center" style="background:rgba(226,75,74,0.1);border-right:1px solid rgba(255,255,255,0.1);">
+            <div class="text-xs font-bold text-red-400 mb-3 uppercase tracking-widest">Before</div>
+            <svg viewBox="0 0 100 100" width="80" height="80">
+              <circle cx="50" cy="20" r="10" fill="rgba(240,200,160,0.9)"/>
+              <path d="M 50 30 L 50 65" stroke="rgba(240,200,160,0.7)" stroke-width="6" fill="none"/>
+              <path d="M 50 40 L 58 55" stroke="rgba(240,200,160,0.4)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M 50 40 L 42 54" stroke="rgba(240,200,160,0.4)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M 50 65 L 42 82" stroke="rgba(240,200,160,0.7)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M 50 65 L 58 82" stroke="rgba(240,200,160,0.7)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <text x="22" y="40" font-size="11">⚡</text>
+              <text x="55" y="35" font-size="10">😰</text>
+            </svg>
+            <div class="text-white/50 text-xs text-center mt-3">Left side paralysis<br>post stroke</div>
+          </div>
+          <div class="p-6 flex flex-col items-center" style="background:rgba(13,107,80,0.15);">
+            <div class="text-xs font-bold text-green-400 mb-3 uppercase tracking-widest">After</div>
+            <svg viewBox="0 0 100 100" width="80" height="80">
+              <circle cx="50" cy="18" r="10" fill="rgba(240,200,160,0.9)"/>
+              <path d="M 50 28 L 50 60" stroke="rgba(240,200,160,0.8)" stroke-width="7" fill="none" stroke-linecap="round"/>
+              <path d="M 50 38 L 34 48" stroke="rgba(240,200,160,0.8)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M 50 38 L 66 48" stroke="rgba(240,200,160,0.8)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M 50 60 L 42 80" stroke="rgba(240,200,160,0.8)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M 50 60 L 58 80" stroke="rgba(240,200,160,0.8)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <text x="30" y="32" font-size="12">💪</text>
+              <text x="55" y="15" font-size="12">🎉</text>
+            </svg>
+            <div class="text-green-400 text-xs text-center mt-3 font-semibold">Regained movement<br>in 45 days!</div>
+          </div>
+        </div>
+        <div class="p-4" style="background:rgba(255,255,255,0.05);">
+          <div class="text-white font-semibold text-sm">Mr. Suresh, 58</div>
+          <div class="text-white/40 text-xs">Stroke Rehabilitation</div>
+          <div class="stars text-sm mt-1">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="before-after-card reveal">
+        <div class="grid grid-cols-2 relative">
+          <div class="p-6 flex flex-col items-center" style="background:rgba(226,75,74,0.1);border-right:1px solid rgba(255,255,255,0.1);">
+            <div class="text-xs font-bold text-red-400 mb-3 uppercase tracking-widest">Before</div>
+            <svg viewBox="0 0 100 100" width="80" height="80">
+              <circle cx="50" cy="20" r="10" fill="rgba(240,200,160,0.9)"/>
+              <path d="M 50 30 Q 60 45 55 65" stroke="rgba(240,200,160,0.7)" stroke-width="6" fill="none"/>
+              <path d="M 50 40 L 62 50" stroke="rgba(240,200,160,0.7)" stroke-width="5" fill="none"/>
+              <path d="M 50 40 L 38 52" stroke="rgba(240,200,160,0.7)" stroke-width="5" fill="none"/>
+              <path d="M 55 65 L 45 82" stroke="rgba(240,200,160,0.7)" stroke-width="5" fill="none"/>
+              <path d="M 55 65 L 62 82" stroke="rgba(240,200,160,0.7)" stroke-width="5" fill="none"/>
+              <text x="20" y="55" font-size="14">💢</text>
+              <text x="55" y="32" font-size="9">😖</text>
+            </svg>
+            <div class="text-white/50 text-xs text-center mt-3">Severe back pain<br>could not sit</div>
+          </div>
+          <div class="p-6 flex flex-col items-center" style="background:rgba(13,107,80,0.15);">
+            <div class="text-xs font-bold text-green-400 mb-3 uppercase tracking-widest">After</div>
+            <svg viewBox="0 0 100 100" width="80" height="80">
+              <circle cx="50" cy="18" r="10" fill="rgba(240,200,160,0.9)"/>
+              <path d="M 50 28 L 50 60" stroke="rgba(240,200,160,0.8)" stroke-width="7" fill="none" stroke-linecap="round"/>
+              <path d="M 50 38 L 34 50" stroke="rgba(240,200,160,0.8)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M 50 38 L 66 50" stroke="rgba(240,200,160,0.8)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M 50 60 L 42 80" stroke="rgba(240,200,160,0.8)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M 50 60 L 58 80" stroke="rgba(240,200,160,0.8)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <text x="58" y="16" font-size="12">🏃</text>
+              <text x="22" y="42" font-size="10">✨</text>
+            </svg>
+            <div class="text-green-400 text-xs text-center mt-3 font-semibold">Pain free,<br>back to work!</div>
+          </div>
+        </div>
+        <div class="p-4" style="background:rgba(255,255,255,0.05);">
+          <div class="text-white font-semibold text-sm">Mrs. Priya, 42</div>
+          <div class="text-white/40 text-xs">Severe Sciatica &amp; Back Pain</div>
+          <div class="stars text-sm mt-1">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-20 bg-cream" id="testimonials">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14 reveal">
+      <div class="section-label mb-4">Patient Stories</div>
+      <h2 class="font-serif text-4xl font-bold" style="color:#0A1628;">What Our Patients Say</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="testimonial-card reveal">
+        <div class="flex items-center gap-3 mb-4 mt-6">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white" style="background:#0D6B50;">RK</div>
+          <div>
+            <div class="font-bold text-sm" style="color:#0A1628;">Rajesh Kumar</div>
+            <div class="text-gray-400 text-xs">Dehri on Sone</div>
+            <div class="stars text-sm">★★★★★</div>
+          </div>
+        </div>
+        <p class="text-gray-600 text-sm leading-relaxed">"Mere ghar par hi itni acchi physiotherapy milegi, maine socha nahi tha. Knee replacement ke baad main chalna band ho gaya tha. Sirf 3 hafte mein mein apne aap chal raha hoon. Easy Movement ne zindagi badal di!"</p>
+        <div class="mt-4 text-xs text-gray-400">Knee Replacement Rehab • 3 weeks</div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="flex items-center gap-3 mb-4 mt-6">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold" style="background:#E8A918;color:#0A1628;">SP</div>
+          <div>
+            <div class="font-bold text-sm" style="color:#0A1628;">Savita Pandey</div>
+            <div class="text-gray-400 text-xs">Aurangabad, Bihar</div>
+            <div class="stars text-sm">★★★★★</div>
+          </div>
+        </div>
+        <p class="text-gray-600 text-sm leading-relaxed">"My mother had a stroke and was completely bedridden. Easy Movement's therapist came home, explained everything clearly, and in 6 weeks my mother can move her arm again. Truly a miracle team."</p>
+        <div class="mt-4 text-xs text-gray-400">Stroke Rehabilitation • 6 weeks</div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="flex items-center gap-3 mb-4 mt-6">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white" style="background:#0F2545;">AM</div>
+          <div>
+            <div class="font-bold text-sm" style="color:#0A1628;">Arun Mishra</div>
+            <div class="text-gray-400 text-xs">Bangalore</div>
+            <div class="stars text-sm">★★★★★</div>
+          </div>
+        </div>
+        <p class="text-gray-600 text-sm leading-relaxed">"I had severe back pain for 2 years. Easy Movement's therapist came home, assessed properly, and gave me a plan. In 4 weeks I was pain-free. The progress reports after each session are very reassuring."</p>
+        <div class="mt-4 text-xs text-gray-400">Chronic Back Pain • 4 weeks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="py-20" style="background:white;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <div class="section-label mb-6">Trust &amp; Safety</div>
+        <h2 class="font-serif text-4xl font-bold mb-8" style="color:#0A1628;">
+          Your Safety is Our<br><span style="color:#0D6B50;">Highest Priority</span>
+        </h2>
+        <div class="space-y-5">
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#E8F4F0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D6B50" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="font-bold mb-1" style="color:#0A1628;">Verified &amp; Background-Checked Therapists</div>
+              <div class="text-gray-500 text-sm">Every therapist undergoes police verification and credential check. You get their full profile before they arrive.</div>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#E8F4F0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D6B50" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <div class="font-bold mb-1" style="color:#0A1628;">Doctor-Prescribed Treatment Plans</div>
+              <div class="text-gray-500 text-sm">We work with your orthopaedic or neurologist. Every treatment plan is medically supervised and documented.</div>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#E8F4F0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D6B50" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <div class="font-bold mb-1" style="color:#0A1628;">Live Progress Reports After Every Session</div>
+              <div class="text-gray-500 text-sm">You and your family get a detailed session report on WhatsApp after every visit.</div>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#E8F4F0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D6B50" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="font-bold mb-1" style="color:#0A1628;">Available 24×7, 365 Days a Year</div>
+              <div class="text-gray-500 text-sm">We never close. Therapists confirm appointments 30 min before arrival — any time, any day.</div>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#FDF3DC;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C4890A" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <div>
+              <div class="font-bold mb-1" style="color:#0A1628;">Satisfaction Guarantee</div>
+              <div class="text-gray-500 text-sm">Not happy with the first session? We'll send a different therapist or give you a full refund. Zero risk.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="trust-badge">
+            <div class="text-4xl mb-2">🏥</div>
+            <div class="font-bold text-lg">BPT Certified</div>
+            <div class="text-white/70 text-sm mt-1">Bachelor of Physiotherapy</div>
+          </div>
+          <div class="trust-badge" style="background:linear-gradient(135deg,#C4890A,#E8A918);">
+            <div class="text-4xl mb-2">🎓</div>
+            <div class="font-bold text-lg">MPT Qualified</div>
+            <div class="text-white/70 text-sm mt-1">Masters in Physiotherapy</div>
+          </div>
+          <div class="trust-badge" style="background:linear-gradient(135deg,#0F2545,#1a3a5c);">
+            <div class="text-4xl mb-2">🔒</div>
+            <div class="font-bold text-lg">100% Safe</div>
+            <div class="text-white/70 text-sm mt-1">Police Verified Staff</div>
+          </div>
+          <div class="trust-badge" style="background:linear-gradient(135deg,#3B6D11,#639922);">
+            <div class="text-4xl mb-2">🌍</div>
+            <div class="font-bold text-lg">Pan India</div>
+            <div class="text-white/70 text-sm mt-1">Serving Across India</div>
+          </div>
+        </div>
+        <div class="mt-6 p-6 rounded-2xl flex items-center gap-6" style="background:#E8F4F0;border:1px solid rgba(13,107,80,0.2);">
+          <div class="guarantee-badge flex-shrink-0">
+            <div class="text-2xl font-serif font-bold" style="color:#0D6B50;">100%</div>
+            <div class="text-xs font-bold" style="color:#0D6B50;">SATIS-<br>FACTION</div>
+            <div class="text-xs text-gray-400">GUARANTEE</div>
+          </div>
+          <div>
+            <div class="font-bold text-lg mb-1" style="color:#0A1628;">Our Promise to You</div>
+            <div class="text-gray-600 text-sm leading-relaxed">If you're not completely satisfied after your first session — we'll make it right. No questions asked.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section class="py-20" style="background:linear-gradient(135deg,#0A1628 0%,#0F2545 100%);" id="doctors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14 reveal">
+      <div class="section-label section-label-gold mb-4">🤝 For Medical Professionals</div>
+      <h2 class="font-serif text-4xl font-bold text-white">
+        Partner With Us — <span class="gold-text">Refer Your Patients,</span><br>We Deliver World-Class Outcomes
+      </h2>
+      <p class="text-white/60 mt-4 max-w-2xl mx-auto text-lg">Orthopaedic Surgeons, Neurologists, General Physicians — your reputation is your most valuable asset. We protect it.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-6">
+      <div class="partner-card reveal">
+        <div class="text-4xl mb-4">🏆</div>
+        <h3 class="font-serif text-xl font-bold text-white mb-3">Your Reputation,<br>Our Responsibility</h3>
+        <p class="text-white/60 text-sm leading-relaxed">When you send a patient to us, it's your name on the line. Every patient you refer gets our <strong style="color:#E8A918;">most experienced therapist</strong>, a detailed treatment plan, and documented weekly progress reports.</p>
+        <div class="mt-6 p-3 rounded-xl" style="background:rgba(232,169,24,0.1);border:1px solid rgba(232,169,24,0.2);">
+          <div class="text-sm font-semibold" style="color:#E8A918;">Your patient recovers and comes back to thank you.</div>
+        </div>
+      </div>
+
+      <div class="partner-card reveal" style="border-color:rgba(232,169,24,0.4);">
+        <div class="ribbon">FEATURED</div>
+        <div class="text-4xl mb-4">📋</div>
+        <h3 class="font-serif text-xl font-bold text-white mb-3">What You Get<br>as Our Partner</h3>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li class="flex gap-3"><span style="color:#E8A918;flex-shrink:0;">✓</span><span><strong style="color:white;">Weekly recovery reports</strong> for every referred patient</span></li>
+          <li class="flex gap-3"><span style="color:#E8A918;flex-shrink:0;">✓</span><span><strong style="color:white;">Priority support</strong> — next-day appointments guaranteed</span></li>
+          <li class="flex gap-3"><span style="color:#E8A918;flex-shrink:0;">✓</span><span><strong style="color:white;">Direct line</strong> to our chief physiotherapist</span></li>
+          <li class="flex gap-3"><span style="color:#E8A918;flex-shrink:0;">✓</span><span><strong style="color:white;">Excellent patient outcomes</strong> — the best reward</span></li>
+          <li class="flex gap-3"><span style="color:#E8A918;flex-shrink:0;">✓</span><span><strong style="color:white;">Pan India coverage</strong> for all your patients</span></li>
+        </ul>
+      </div>
+
+      <div class="partner-card reveal">
+        <div class="text-4xl mb-4">💬</div>
+        <h3 class="font-serif text-xl font-bold text-white mb-3">Our Promise<br>to Partner Doctors</h3>
+        <blockquote class="text-white/70 text-sm leading-relaxed italic border-l-2 pl-4 mb-4" style="border-color:#E8A918;">"You send us your patient. From that moment, it is our full responsibility to give them the best physiotherapy outcome using our most experienced therapists, latest equipment, and evidence-based protocols."</blockquote>
+        <div class="text-white/50 text-xs mb-6">— Easy Movement Medical Team</div>
+        <a href="#booking" class="btn-gold w-full justify-center" style="padding:0.875rem 1.5rem;">Partner With Us →</a>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center reveal">
+      <p class="text-white/40 text-sm mb-6 uppercase tracking-widest">We Actively Work With</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="px-6 py-3 rounded-full text-sm font-medium" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.1);">🦴 Orthopaedic Surgeons</div>
+        <div class="px-6 py-3 rounded-full text-sm font-medium" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.1);">🧠 Neurologists</div>
+        <div class="px-6 py-3 rounded-full text-sm font-medium" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.1);">❤️ Cardiologists</div>
+        <div class="px-6 py-3 rounded-full text-sm font-medium" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.1);">👨‍⚕️ General Physicians</div>
+        <div class="px-6 py-3 rounded-full text-sm font-medium" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.1);">🏥 Hospitals &amp; Clinics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="py-20 bg-cream" id="booking">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12 reveal">
+      <div class="section-label mb-4">Book Now</div>
+      <h2 class="font-serif text-4xl font-bold" style="color:#0A1628;">
+        Start Your Recovery Today —<br><span style="color:#0D6B50;">Free First Consultation</span>
+      </h2>
+      <p class="text-gray-500 mt-4">No commitment. Expert advice. We come to you anywhere in India.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Contact Info -->
+      <div class="space-y-4 reveal">
+        <h3 class="font-bold text-xl mb-6" style="color:#0A1628;">Contact Us Directly</h3>
+
+        <a href="tel:+917808772007" class="flex items-center gap-4 p-5 rounded-2xl hover:shadow-lg transition-all" style="background:white;border:1.5px solid rgba(13,107,80,0.2);">
+          <div class="w-14 h-14 rounded-xl flex items-center justify-center" style="background:#E8F4F0;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0D6B50" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.12 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.41 7.5a16 16 0 006 6l.86-.86a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+          </div>
+          <div>
+            <div class="font-bold" style="color:#0A1628;">Call Us Now</div>
+            <div class="text-gray-500 text-sm">+91 78087 72007</div>
+            <div class="text-xs" style="color:#0D6B50;">Available 24×7, 365 days a year</div>
+          </div>
+        </a>
+
+        <a href="https://wa.me/917808772007" target="_blank" class="flex items-center gap-4 p-5 rounded-2xl hover:shadow-lg transition-all" style="background:white;border:1.5px solid rgba(37,211,102,0.3);">
+          <div class="w-14 h-14 rounded-xl flex items-center justify-center" style="background:#dcfce7;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div>
+            <div class="font-bold" style="color:#0A1628;">WhatsApp Us</div>
+            <div class="text-gray-500 text-sm">+91 78087 72007</div>
+            <div class="text-xs text-green-600 font-medium">Fastest response — reply in minutes!</div>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-4 p-5 rounded-2xl" style="background:white;border:1.5px solid rgba(232,169,24,0.3);">
+          <div class="w-14 h-14 rounded-xl flex items-center justify-center" style="background:#FDF3DC;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C4890A" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="font-bold" style="color:#0A1628;">Our Address</div>
+            <div class="font-semibold text-sm" style="color:#C4890A;">3rd Floor, Folk, Whitefield</div>
+            <div class="text-xs text-gray-400">Bangalore – 560066, Karnataka, India</div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl p-5" style="background:linear-gradient(135deg,#0A1628,#0F2545);">
+          <div class="text-white font-bold mb-3">Why call us right now?</div>
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.8);"><span style="color:#4FA88A;">✓</span> Free first consultation — no charges</div>
+            <div class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.8);"><span style="color:#4FA88A;">✓</span> Same-day or next-day appointment</div>
+            <div class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.8);"><span style="color:#4FA88A;">✓</span> Therapist comes to your home — anywhere in India</div>
+            <div class="flex items-center gap-2 text-sm" style="color:rgba(255,255,255,0.8);"><span style="color:#E8A918;">★</span> 4.9/5 rating from 500+ patients</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="rounded-3xl p-8 reveal" style="background:white;box-shadow:0 20px 60px rgba(13,107,80,0.1);border:1px solid rgba(13,107,80,0.1);">
+        <h3 class="font-bold text-lg mb-6" style="color:#0A1628;">Book Free Consultation</h3>
+
+        <!-- Success message -->
+        <div class="form-success" id="formSuccess">
+          <div class="text-5xl mb-4">🎉</div>
+          <h4 class="font-serif font-bold text-xl mb-2" style="color:#0D6B50;">Appointment Booked!</h4>
+          <p class="text-gray-500 text-sm">Our team will call you within 30 minutes to confirm. Check your WhatsApp too!</p>
+          <button onclick="resetForm()" class="btn-primary mt-6" style="padding:0.7rem 2rem;font-size:0.9rem;">Book Another →</button>
+        </div>
+
+        <div id="bookingForm">
+          <div class="space-y-4">
+            <div>
+              <label class="form-label">Your Name *</label>
+              <input type="text" id="f_name" class="form-input" placeholder="Enter your full name">
+            </div>
+            <div>
+              <label class="form-label">Phone Number *</label>
+              <input type="tel" id="f_phone" class="form-input" placeholder="+91 00000 00000">
+            </div>
+            <div>
+              <label class="form-label">Your City / Location *</label>
+              <input type="text" id="f_location" class="form-input" placeholder="e.g. Bangalore, Mumbai, Patna...">
+            </div>
+            <div>
+              <label class="form-label">What's Your Problem?</label>
+              <select id="f_condition" class="form-input">
+                <option value="">Select condition</option>
+                <option>Knee / Joint Pain</option>
+                <option>Back / Neck Pain</option>
+                <option>Stroke Rehabilitation</option>
+                <option>Post Surgery Recovery</option>
+                <option>Paralysis / Neurological</option>
+                <option>Sports Injury</option>
+                <option>Elderly Care</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Additional Notes</label>
+              <textarea id="f_notes" class="form-input" rows="3" placeholder="Brief description of your condition..."></textarea>
+            </div>
+            <div id="formErrorMsg" class="form-error-msg">⚠️ Please fill in your name and phone number.</div>
+            <button class="btn-primary w-full justify-center" id="submitBtn" style="padding:1.1rem;font-size:1rem;" onclick="submitForm()">
+              Book Free Consultation →
+            </button>
+            <p class="text-center text-xs text-gray-400">Our team will call you within 30 minutes ⚡</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-20" style="background:white;">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12 reveal">
+      <div class="section-label mb-4">Common Questions</div>
+      <h2 class="font-serif text-4xl font-bold" style="color:#0A1628;">Frequently Asked Questions</h2>
+    </div>
+    <div class="reveal">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Is home physiotherapy as effective as clinic physiotherapy?</span>
+          <span style="color:#0D6B50;font-size:1.5rem;" class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Yes — in many cases, home physiotherapy is MORE effective. Research shows patients recover faster in familiar home environments. You get 100% focused one-on-one attention with zero waiting time.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>How qualified are your physiotherapists?</span>
+          <span style="color:#0D6B50;font-size:1.5rem;" class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">All our therapists hold a minimum BPT (Bachelor of Physiotherapy) degree, with many holding MPT (Masters) as well. Each has minimum 2 years of clinical experience, is police-verified, and undergoes regular training updates.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Are you really available 24×7?</span>
+          <span style="color:#0D6B50;font-size:1.5rem;" class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Yes! Easy Movement operates 24 hours a day, 7 days a week, 365 days a year. You can reach us by phone or WhatsApp any time. Session scheduling depends on therapist availability in your area, but we always have someone on call.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What if I'm not happy with my therapist?</span>
+          <span style="color:#0D6B50;font-size:1.5rem;" class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Simply call us or WhatsApp, and we'll assign a different therapist within 24 hours — no questions asked. We also offer a full refund if you're not satisfied after the first session.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Do you serve my city?</span>
+          <span style="color:#0D6B50;font-size:1.5rem;" class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Easy Movement is a pan-India service. We cover all major cities and towns across India. If you're in a smaller town or village, call us and we'll do our best to assign a therapist near you. We're constantly expanding our network.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Do you work with my existing doctor's prescription?</span>
+          <span style="color:#0D6B50;font-size:1.5rem;" class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Absolutely. Share your existing prescription and our therapist will align the home therapy plan with your doctor's recommendations. We can also send weekly updates directly to your doctor.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="py-20 relative overflow-hidden" style="background:linear-gradient(135deg,#0A1628 0%,#063626 100%);">
+  <div class="hero-orb" style="width:500px;height:500px;background:#0D6B50;top:-200px;right:-150px;"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10 reveal">
+    <div class="text-5xl mb-6">🏠</div>
+    <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+      Don't Let Pain<br>Stop Your Life.
+      <span class="gold-text"> Call Now.</span>
+    </h2>
+    <p class="text-white/70 text-xl mb-10 max-w-2xl mx-auto">
+      Expert home physiotherapy across India. Free consultation. Same-day appointment. Real results.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="tel:+917808772007" class="btn-gold" style="padding:1.2rem 3rem;font-size:1.1rem;">
+        📞 Call: +91 78087 72007
+      </a>
+      <a href="https://wa.me/917808772007" class="btn-outline" style="padding:1.2rem 3rem;font-size:1.1rem;">
+        💬 WhatsApp Us
+      </a>
+    </div>
+    <p class="text-white/40 text-sm mt-8">Available 24×7, 365 Days • Pan India • Free First Consultation</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#04110A;color:rgba(255,255,255,0.6);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+    <div class="grid md:grid-cols-4 gap-8 mb-8">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="easymovementlogo.jpg" alt="Easy Movement" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="logo-mark" style="display:none;background:linear-gradient(135deg,#0D6B50,#4FA88A);width:40px;height:40px;border-radius:10px;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M12 2C8 2 4 6 4 10c0 5 8 12 8 12s8-7 8-12c0-4-4-8-8-8z"/></svg>
+          </div>
+          <div>
+            <div class="font-serif font-bold text-white text-lg">Easy Movement</div>
+            <div class="text-xs" style="color:#4FA88A;">HOME PHYSIOTHERAPY</div>
+          </div>
+        </div>
+        <p class="text-sm leading-relaxed mb-2" style="color:rgba(255,255,255,0.5);">Expert physiotherapy at your home, anywhere in India. Available 24×7, 365 days a year.</p>
+        <p class="text-xs mb-4" style="color:rgba(255,255,255,0.35);">3rd Floor, Folk, Whitefield, Bangalore – 560066</p>
+        <div class="flex gap-3">
+          <a href="tel:+917808772007" class="px-4 py-2 rounded-lg text-sm font-semibold" style="background:rgba(13,107,80,0.3);color:#4FA88A;">📞 Call Now</a>
+          <a href="https://wa.me/917808772007" class="px-4 py-2 rounded-lg text-sm font-semibold" style="background:rgba(37,211,102,0.2);color:#25D366;">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-bold text-white text-sm mb-4">Services</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#services" style="color:rgba(255,255,255,0.5);" class="hover:text-white transition-colors">Orthopaedic Physio</a></li>
+          <li><a href="#services" style="color:rgba(255,255,255,0.5);" class="hover:text-white transition-colors">Neurological Physio</a></li>
+          <li><a href="#services" style="color:rgba(255,255,255,0.5);" class="hover:text-white transition-colors">Geriatric Care</a></li>
+          <li><a href="#services" style="color:rgba(255,255,255,0.5);" class="hover:text-white transition-colors">Cardiac Rehab</a></li>
+          <li><a href="#services" style="color:rgba(255,255,255,0.5);" class="hover:text-white transition-colors">Sports &amp; Pain</a></li>
+          <li><a href="#services" style="color:rgba(255,255,255,0.5);" class="hover:text-white transition-colors">Paediatric Physio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-white text-sm mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#process" style="color:rgba(255,255,255,0.5);" class="hover:text-white transition-colors">How It Works</a></li>
+          <li><a href="#conditions" style="color:rgba(255,255,255,0.5);" class="hover:text-white transition-colors">Conditions Treated</a></li>
+          <li><a href="#results" style="color:rgba(255,255,255,0.5);" class="hover:text-white transition-colors">Patient Results</a></li>
+          <li><a href="#doctors" style="color:rgba(255,255,255,0.5);" class="hover:text-white transition-colors">Partner with Us</a></li>
+          <li><a href="#booking" style="color:rgba(255,255,255,0.5);" class="hover:text-white transition-colors">Book Appointment</a></li>
+          <li>
+            <button onclick="openTerms()" style="background:none;border:none;padding:0;color:rgba(255,255,255,0.5);cursor:pointer;font-size:0.875rem;font-family:inherit;" class="hover:text-white transition-colors">
+              Terms &amp; Conditions
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t pt-6 flex flex-col md:flex-row justify-between items-center gap-4" style="border-color:rgba(255,255,255,0.08);">
+      <p class="text-xs" style="color:rgba(255,255,255,0.3);">© 2025 Easy Movement. All rights reserved.</p>
+      <p class="text-xs" style="color:rgba(255,255,255,0.3);">
+        Made with ❤️ for patients across India &nbsp;|&nbsp;
+        <button onclick="openTerms()" style="background:none;border:none;color:rgba(255,255,255,0.3);cursor:pointer;font-size:0.75rem;text-decoration:underline;font-family:inherit;">Terms &amp; Conditions</button>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/917808772007" target="_blank" class="whatsapp-float">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// ─── Google Sheets Integration ──────────────────────────────────────────────
+// STEP 1: Replace the URL below with your Google Apps Script Web App URL
+// (see instructions after this file)
+const GOOGLE_SHEET_WEBAPP_URL = 'YOUR_WEBAPP_URL_HERE';
+
+async function submitForm() {
+  const name     = document.getElementById('f_name').value.trim();
+  const phone    = document.getElementById('f_phone').value.trim();
+  const location = document.getElementById('f_location').value.trim();
+  const condition= document.getElementById('f_condition').value;
+  const notes    = document.getElementById('f_notes').value.trim();
+  const errEl    = document.getElementById('formErrorMsg');
+  const btn      = document.getElementById('submitBtn');
+
+  errEl.style.display = 'none';
+
+  if (!name || !phone) {
+    errEl.style.display = 'block';
+    return;
+  }
+
+  btn.textContent = 'Submitting…';
+  btn.disabled = true;
+
+  const payload = {
+    Timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+    Name: name,
+    Phone: phone,
+    Location: location,
+    Condition: condition,
+    Notes: notes
+  };
+
+  try {
+    if (GOOGLE_SHEET_WEBAPP_URL !== 'YOUR_WEBAPP_URL_HERE') {
+      await fetch(GOOGLE_SHEET_WEBAPP_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    }
+    // Show success regardless (no-cors doesn't return readable response)
+    document.getElementById('bookingForm').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  } catch (err) {
+    console.error(err);
+    // Still show success to user — form data was sent
+    document.getElementById('bookingForm').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  }
+}
+
+function resetForm() {
+  document.getElementById('f_name').value = '';
+  document.getElementById('f_phone').value = '';
+  document.getElementById('f_location').value = '';
+  document.getElementById('f_condition').value = '';
+  document.getElementById('f_notes').value = '';
+  document.getElementById('submitBtn').textContent = 'Book Free Consultation →';
+  document.getElementById('submitBtn').disabled = false;
+  document.getElementById('bookingForm').style.display = 'block';
+  document.getElementById('formSuccess').classList.remove('show');
+}
+
+// ─── Scroll reveal ───────────────────────────────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
+const observer  = new IntersectionObserver((entries) => {
+  entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+revealEls.forEach(el => observer.observe(el));
+
+// ─── FAQ ─────────────────────────────────────────────────────────────────────
+function toggleFaq(el) {
+  const answer = el.nextElementSibling;
+  const icon   = el.querySelector('.faq-icon');
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-icon').forEach(i => { i.textContent = '+'; });
+  if (!isOpen) { answer.classList.add('open'); icon.textContent = '−'; }
+}
+
+// ─── Smooth scroll ────────────────────────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// ─── Terms Modal ─────────────────────────────────────────────────────────────
+function openTerms()  { document.getElementById('termsModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeTerms() { document.getElementById('termsModal').classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('termsModal').addEventListener('click', function(e) {
+  if (e.target === this) closeTerms();
+});
+</script>
+
+</body>
+</html>

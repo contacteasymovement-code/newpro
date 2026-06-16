@@ -45,8 +45,12 @@ tailwind.config = {
   .float { animation: float 4s ease-in-out infinite; }
 
   /* Nav */
-  .nav-glass { background: rgba(10,22,40,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); }
-
+  .nav-glass {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(13,107,80,0.10);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
   /* Hero */
   .hero-bg {
     background: linear-gradient(135deg, #0A1628 0%, #0F2545 40%, #093830 100%);
@@ -303,10 +307,12 @@ tailwind.config = {
 
   /* Logo image style */
   .logo-img {
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    object-fit: cover;
-  }
+    height: 56px;
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+    border-radius: 0;
+}
 
   .guarantee-badge {
     background: white;
@@ -482,9 +488,16 @@ tailwind.config = {
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><path d="M12 2C8 2 4 6 4 10c0 5 8 12 8 12s8-7 8-12c0-4-4-8-8-8z"/></svg>
       </div>
       <div>
-        <div class="font-serif font-bold text-white text-lg leading-tight">Easy Movement</div>
-        <div class="text-xs" style="color:rgba(79,168,138,0.9);font-weight:500;letter-spacing:0.05em;">HOME PHYSIOTHERAPY</div>
-      </div>
+
+      
+      <div class="text-xs" style="color:#0D6B50;font-weight:500;letter-spacing:0.05em;">
+          HOME PHYSIOTHERAPY
+      </div>  </div>
+
+      <a href="#services" class="text-sm text-gray-700 hover:text-primary-500 transition-colors">Services</a>
+<a href="#process" class="text-sm text-gray-700 hover:text-primary-500 transition-colors">How It Works</a>
+<a href="#conditions" class="text-sm text-gray-700 hover:text-primary-500 transition-colors">Conditions</a>
+<a href="#doctors" class="text-sm text-gray-700 hover:text-primary-500 transition-colors">For Doctors</a>
     </div>
     <div class="hidden md:flex items-center gap-8">
       <a href="#services" class="text-sm text-white/70 hover:text-white transition-colors">Services</a>

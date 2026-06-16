@@ -478,35 +478,163 @@ tailwind.config = {
     </div>
   </div>
 </div>
-
-<!-- NAV -->
+<!-- NAVBAR -->
 <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-    <div class="flex items-center gap-3">
-      <img src="easymovementlogo.jpg" alt="Easy Movement Logo" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-      <div class="logo-mark" style="display:none;background:linear-gradient(135deg,#0D6B50,#4FA88A);width:40px;height:40px;border-radius:10px;align-items:center;justify-content:center;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><path d="M12 2C8 2 4 6 4 10c0 5 8 12 8 12s8-7 8-12c0-4-4-8-8-8z"/></svg>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+    <!-- Top Row -->
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo Section -->
+      <div class="flex items-center gap-3 flex-shrink-0">
+
+        <img
+          src="easymovementlogo.jpg"
+          alt="Easy Movement Logo"
+          class="logo-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        >
+
+        <!-- Fallback Logo -->
+        <div
+          class="logo-mark"
+          style="display:none;background:linear-gradient(135deg,#0D6B50,#4FA88A);width:40px;height:40px;border-radius:10px;align-items:center;justify-content:center;"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            stroke-width="2.2"
+            stroke-linecap="round"
+          >
+            <path d="M12 2C8 2 4 6 4 10c0 5 8 12 8 12s8-7 8-12c0-4-4-8-8-8z"/>
+          </svg>
+        </div>
+
+        <!-- Brand Text -->
+        <div class="leading-tight">
+          <div
+            class="text-xs sm:text-sm"
+            style="color:#0D6B50;font-weight:600;letter-spacing:0.08em;"
+          >
+            HOME PHYSIOTHERAPY
+          </div>
+        </div>
+
       </div>
-      <div>
 
-      
-      <div class="text-xs" style="color:#0D6B50;font-weight:500;letter-spacing:0.05em;">
-          HOME PHYSIOTHERAPY
-      </div>  </div>
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
 
-      <a href="#services" class="text-sm text-gray-700 hover:text-primary-500 transition-colors">Services</a>
-<a href="#process" class="text-sm text-gray-700 hover:text-primary-500 transition-colors">How It Works</a>
-<a href="#conditions" class="text-sm text-gray-700 hover:text-primary-500 transition-colors">Conditions</a>
-<a href="#doctors" class="text-sm text-gray-700 hover:text-primary-500 transition-colors">For Doctors</a>
+        <a
+          href="#services"
+          class="text-sm text-gray-700 hover:text-primary-500 transition-colors"
+        >
+          Services
+        </a>
+
+        <a
+          href="#process"
+          class="text-sm text-gray-700 hover:text-primary-500 transition-colors"
+        >
+          How It Works
+        </a>
+
+        <a
+          href="#conditions"
+          class="text-sm text-gray-700 hover:text-primary-500 transition-colors"
+        >
+          Conditions
+        </a>
+
+        <a
+          href="#doctors"
+          class="text-sm text-gray-700 hover:text-primary-500 transition-colors"
+        >
+          For Doctors
+        </a>
+
+        <a
+          href="#booking"
+          class="btn-primary"
+          style="padding:0.6rem 1.5rem;font-size:0.875rem;"
+        >
+          📞 Book Now
+        </a>
+
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg"
+        aria-label="Open Menu"
+      >
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style="color:#0D6B50;"
+        >
+          <circle cx="12" cy="5" r="2"></circle>
+          <circle cx="12" cy="12" r="2"></circle>
+          <circle cx="12" cy="19" r="2"></circle>
+        </svg>
+      </button>
+
     </div>
-    <div class="hidden md:flex items-center gap-8">
-      <a href="#services" class="text-sm text-white/70 hover:text-white transition-colors">Services</a>
-      <a href="#process" class="text-sm text-white/70 hover:text-white transition-colors">How It Works</a>
-      <a href="#conditions" class="text-sm text-white/70 hover:text-white transition-colors">Conditions</a>
-      <a href="#doctors" class="text-sm text-white/70 hover:text-white transition-colors">For Doctors</a>
-      <a href="#booking" class="btn-primary" style="padding:0.6rem 1.5rem;font-size:0.875rem;">📞 Book Now</a>
+
+    <!-- Mobile Dropdown Menu -->
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden border-t border-gray-200 bg-white"
+    >
+      <div class="flex flex-col py-4">
+
+        <a
+          href="#services"
+          class="px-4 py-3 text-gray-700 hover:bg-gray-50"
+        >
+          Services
+        </a>
+
+        <a
+          href="#process"
+          class="px-4 py-3 text-gray-700 hover:bg-gray-50"
+        >
+          How It Works
+        </a>
+
+        <a
+          href="#conditions"
+          class="px-4 py-3 text-gray-700 hover:bg-gray-50"
+        >
+          Conditions
+        </a>
+
+        <a
+          href="#doctors"
+          class="px-4 py-3 text-gray-700 hover:bg-gray-50"
+        >
+          For Doctors
+        </a>
+
+        <div class="px-4 pt-3">
+          <a
+            href="#booking"
+            class="btn-primary"
+            style="padding:0.75rem 1.5rem;font-size:0.9rem;"
+          >
+            📞 Book Now
+          </a>
+        </div>
+
+      </div>
     </div>
-    <a href="#booking" class="md:hidden btn-primary" style="padding:0.5rem 1.2rem;font-size:0.8rem;">Book Now</a>
+
   </div>
 </nav>
 
@@ -1543,6 +1671,23 @@ document.getElementById('termsModal').addEventListener('click', function(e) {
   if (e.target === this) closeTerms();
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+  const menuBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuBtn.addEventListener("click", function () {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  document.querySelectorAll("#mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+    });
+  });
+
+});
+</script>
 </body>
 </html>
